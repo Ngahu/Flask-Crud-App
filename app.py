@@ -38,6 +38,15 @@ def articles():
 
 
 
+@app.route('/articles/<string:id>/')
+def article_detail(id):
+    """
+    Description:Render the articles page .
+    """
+    return render_template('article_detail.html',id=id)
+
+
+
 
 
 if __name__ == "__main__":
