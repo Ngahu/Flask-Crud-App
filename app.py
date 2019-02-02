@@ -1,9 +1,7 @@
 """
 Description:This scripts basically create a flask app
 """
-
-
-from flask import Flask
+from flask import Flask,render_template
 
 
 app = Flask(__name__)
@@ -15,7 +13,7 @@ def index():
     """
     Description:Render the home route.
     """
-    return 'INDEX HOME'
+    return render_template('home.html')
 
 
 
