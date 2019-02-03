@@ -102,6 +102,7 @@ def register():
 
     if request.method == 'POST' and form.validate():
         print(request)
+        # return render_template('auth/register.html',form=form)
     
     return render_template('auth/register.html',form=form)
 
