@@ -1,11 +1,31 @@
 """
 Description:This scripts basically create a flask app
 """
-from flask import Flask,render_template
+from flask import (
+        Flask,
+        render_template,
+        flash,
+        redirect,
+        url_for,
+        session,llogging
+        )
+
+
+from flask_mysqldb import MySQL
+from wtforms import (
+                    Form,
+                    StringField,
+                    TextAreaField,
+                    PasswordField,
+                    validators
+                    )
+
+from passlib.hash import  sha256_crypt
+
 from data import all_articles
 
 app = Flask(__name__)
-
+mysql = MySQL(app)
 
 Articles = all_articles()
 
@@ -47,6 +67,18 @@ def article_detail(id):
 
 
 
+
+
+
+
+# forms
+
+
+class RegisterForm(Form):
+    """
+    Description:This is the form that is going to be used by the user to register.\n
+    """
+    pass
 
 
 if __name__ == "__main__":
