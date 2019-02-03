@@ -7,7 +7,9 @@ from flask import (
         flash,
         redirect,
         url_for,
-        session,llogging
+        session,
+        logging,
+        request
         )
 
 
@@ -87,6 +89,24 @@ class RegisterForm(Form):
 
     ])
     confirm = PasswordField('Confirm Password')
+
+
+
+
+@app.route('/register',methods=['GET','POST'])
+def register():
+    """
+    Description:This is going to be the user register view.\n
+    """
+    form = RegisterForm(request.form)
+
+    if request.method == 'POST' and form.validate():
+        print(request)
+    
+    return render_template('auth/register.html',form=form)
+
+    
+
 
 
 if __name__ == "__main__":
