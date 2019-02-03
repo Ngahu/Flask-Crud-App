@@ -78,7 +78,15 @@ class RegisterForm(Form):
     """
     Description:This is the form that is going to be used by the user to register.\n
     """
-    pass
+    name = StringField('Name',[validators.Length(min=1,max=50)])
+    username = StringField('Username',[validators.Length(min=4,max=27)])
+    email = StringField('Email',[validators.Length(min=4,max=57)])
+    password = PasswordField('Password',[
+                validators.DataRequired(),
+                validators.EqualTo('confirm',message='Passwords do not match.')
+
+    ])
+    confirm = PasswordField('Confirm Password')
 
 
 if __name__ == "__main__":
